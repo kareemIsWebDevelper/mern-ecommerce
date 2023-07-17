@@ -1,35 +1,40 @@
 import AppNav from "../components/AppNav";
-import {Suspense, lazy, useState, useEffect} from "react";
-import { Loading } from "../utils/Loading";
-import {useParams} from "react-router-dom";
+import {useState, useEffect} from "react";
+import { useLocation } from "react-router-dom";
 import {Products} from "../lib/types";
 import {getProducts} from "../lib/api/product";
-const ProductCard = lazy(() =>
- import("../components/cards/ProductCard"));
+import {ProductCard} from "../components/cards/ProductCard";
 
 export const AllProducts = () => {
-    const { id } = useParams();
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const categoryId = queryParams.get("id");
     const [products, setProducts] = useState<Products[]>([]);
+    const [isVisible, setIsVisible] = useState<boolean>(true);
 
-    useEffect(() => {      
+    useEffect(() => {
         const fetchProducts = async () => {
             const data = await getProducts();
 
-            const filteredProducts = data.filter((product) =>
-            product.category._id === id)
+            const filteredProducts = data.filter(
+                (product) => product.category._id === categoryId
+            );
+
             setProducts(filteredProducts);
+            setIsVisible(false);
         };
-        void fetchProducts();
-    }, []);
+
+        if (categoryId) {
+            void fetchProducts();
+        }
+    }, [categoryId]);
 
 
     return (
       <>
         <AppNav />
         <main className={'mt-16'}>
-          <Suspense fallback={<Loading />}>
-            <ProductCard products={products}/>
-          </Suspense>
+            <ProductCard products={products} isVisible={isVisible} />
         </main>
       </>
     );
