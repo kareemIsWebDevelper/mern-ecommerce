@@ -4,14 +4,16 @@ import {Products} from "../lib/types";
 import {getProducts} from "../lib/api/product";
 import {SearchInput} from "../components/SearchInput";
 import {Loading} from "../utils/Loading";
-const ProductCard = lazy(() => import("../components/cards/ProductCard"));
+import {ProductCard} from "../components/cards/ProductCard";
 
 export const Search = () => {
 	const [isHidden, setIsHidden] = useState<boolean>(true);
 	const [products, setProducts] = useState<Products[]>([]);
 	const [searched, setSearched] = useState<string>("");
+	const [isVisible, setIsVisible] = useState<boolean>(false);
 
 	const handleSubmit = (event) => {
+		setIsHidden(true);
 		event.preventDefault();
 
 		if (!searched) alert("You shop all now!") ;
@@ -34,6 +36,7 @@ export const Search = () => {
 			});
 			setProducts(filteredProducts);
 			setIsHidden(false);
+			setIsVisible(false);
 		} catch (error) {
 				console.error(error);
 		}
@@ -50,6 +53,7 @@ export const Search = () => {
 					<div className="gridCenter">
 					<SearchInput setSearched={setSearched} />
 					<div>
+						{isVisible && <p className="text-center">Loading Products...</p>}
 						{isHidden &&
 							<h1 className="text-center text-3xl md:text-6xl bold mt-12 w-72 md:w-[800px]">
 								Search For Product<br />
@@ -60,7 +64,7 @@ export const Search = () => {
 					</div>
 				</form>
 				<Suspense fallback={<Loading />}>
-					<ProductCard products={products} />
+					<ProductCard products={products} isVisible={isVisible} />
 				</Suspense>
 			</main>
 		</>
