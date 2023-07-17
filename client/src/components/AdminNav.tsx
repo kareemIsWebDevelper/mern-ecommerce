@@ -1,5 +1,4 @@
 import { useNav } from "../hooks/useNav";
-import {SearchIcon} from "./SubComponents";
 import { Link } from "react-router-dom";
 
 export default function AdminNav() {
@@ -10,12 +9,9 @@ export default function AdminNav() {
     <header>
       <nav className="navbar">
         <div className="flexBetween w-full px-4">
-        <Link to="/" className="flexCenter gap-2">
-          <h1 className="bold text-2xl">Brand</h1> | <h2>Home</h2>
-        </Link>
-          <div className="flexCenter gap-4">
-            <SearchIcon />
-          </div>
+          <Link to="/" className="flexCenter gap-2">
+            <h1 className="bold text-2xl">Brand</h1> | <h2>Home</h2>
+          </Link>
         </div>
       </nav>
       {toggle && (
