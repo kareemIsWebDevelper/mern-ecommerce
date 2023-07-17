@@ -22,7 +22,7 @@ const CategoryCard = ({ categories, isVisible }) => {
               />
               <p className="slate">{category.description}</p>
               <Link
-                to={`category/${category._id}`}
+                to={`/category?id=${category._id}`}
                 className="font-bold text-xl bgTeal text-white w-fit p-3">
                 Shop {category.name}
               </Link>
