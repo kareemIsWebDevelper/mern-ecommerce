@@ -6,15 +6,6 @@ import {SearchIcon} from "./SubComponents";
 export default function AppNav() {
   const {Link, toggle, handleToggle, alterLink} = useNav();
 
-    const navLinks = [
-        {id: 1, target: "/", text: "Home"},
-        {id: 2, target: "/admin", text: "Dashboard"},
-        {id: 3, target: "/category/64acbda9476e323a10bc8a9d", text: "Electronics"},
-        {id: 4, target: "/category/64ad8b2dc9feffb6950b9ec0", text: "Grocery"},
-        {id: 5, target: "/category/64acc8b9a270321fbd322a71", text: "Personal Care"},
-        {id: 6, target: "/category/64ad8cfce6f1f0caae01de26", text: "Clothes"},
-    ];
-
   return (
     <header>
       <nav className="navbar">
@@ -64,4 +55,13 @@ export default function AppNav() {
       </nav>
     </header>
   );
-}
+};
+
+const navLinks = [
+    { id: 1, target: "/", text: "Home" },
+    { id: 2, target: "/admin", text: "Dashboard" },
+    { id: 3, target: "/category?id=64acbda9476e323a10bc8a9d", text: "Electronics" },
+    { id: 4, target: "/category?id=64ad8b2dc9feffb6950b9ec0", text: "Grocery" },
+    { id: 5, target: "/category?id=64acc8b9a270321fbd322a71", text: "Personal Care" },
+    { id: 6, target: "/category?id=64ad8cfce6f1f0caae01de26", text: "Clothes" },
+];
