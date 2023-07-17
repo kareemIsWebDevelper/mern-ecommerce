@@ -1,7 +1,6 @@
 import { useNav } from "../hooks/useNav";
-import {menu} from "../assets";
 import {SearchIcon} from "./SubComponents";
-import CartCounter from "./cart/CartCounter";
+import { Link } from "react-router-dom";
 
 export default function AdminNav() {
   const { menu, close, Link
@@ -11,11 +10,9 @@ export default function AdminNav() {
     <header>
       <nav className="navbar">
         <div className="flexBetween w-full px-4">
-          <img
-              src={menu} alt="menu"
-              className="w-10 h-10 cursor-pointer"
-              onClick={handleToggle}
-          />
+        <Link to="/" className="flexCenter gap-2">
+          <h1 className="bold text-2xl">Brand</h1> | <h2>Home</h2>
+        </Link>
           <div className="flexCenter gap-4">
             <SearchIcon />
           </div>
