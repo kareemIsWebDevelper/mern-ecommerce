@@ -33,7 +33,7 @@ const routes = [
   { id: 3, path: "/admin", component: Admin },
   { id: 4, path: "/admin/product", component: Products },
   { id: 5, path: "/admin/category", component: Categories },
-  { id: 6, path: "/category/:id", component: AllProducts },
+  { id: 6, path: "/category", component: AllProducts },
   { id: 7, path: "/cart", component: Cart },
   { id: 8, path: "/search", component: Search },
   { id: 9, path: "/product/:id", component: Details }
