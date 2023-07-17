@@ -1,0 +1,25 @@
+.card {
+   @apply gridStart;
+    .card-body {
+        @apply flex justify-evenly items-center md:flex-wrap gap-4;
+        .product-card {
+            @apply text-2xl gridCenter gap-2 bg-white p-2 shadow-lg;
+            .product-image {
+                @apply bg-white w-32 h-32 md:w-44 md:h-44 relative;
+                .add {
+                    @apply text-white rounded-full text-4xl flexCenter
+                     bgTeal w-8 h-8 absolute right-0 bottom-0;
+                        
+                    span {
+                        @apply mb-1.5;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.card-header {
+    @apply font-bold -mb-4 ml-1
+            text-2xl md:text-3xl;
+}

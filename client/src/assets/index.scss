@@ -1,0 +1,28 @@
+@import "./scss/app.scss";
+
+.App {
+  @apply relative w-full h-full;
+}
+
+main {
+  @apply py-2 px-4 md:px-16 xs:grid place-items-center -mb-44;
+}
+
+section {
+  @apply w-full flexCenter flex-wrap mt-4;
+
+  h1 {
+    @apply gridCenter md:place-items-start text-center
+                w-full text-4xl my-4 font-extrabold;
+  }
+  h2 {
+    @apply gridCenter w-full text-2xl my-4 font-bold;
+  }
+}
+
+.checkoutList {
+  @apply grid justify-center content-around gap-4 text-center absolute
+        top-36 left-1/2 -translate-x-1/2 z-20 w-72 md:w-80 h-56
+        md:h-72 p-4 bg-white shadow-2xl rounded-2xl;
+}
+

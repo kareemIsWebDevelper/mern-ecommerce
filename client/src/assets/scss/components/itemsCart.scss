@@ -1,0 +1,27 @@
+#cart-items {
+  @apply w-full border-black flex justify-evenly
+  items-center flex-wrap gap-8 md:gap-4 text-center my-4;
+
+  div {
+    @apply bg-white;
+   div {
+      @apply gridCenter;
+      img {
+        @apply w-56 h-44;
+      }
+      div {
+          @apply flexCenter gap-2;
+          h4 {
+              @apply font-bold;
+          }
+          span {
+              @apply text-sm font-light line-through text-slate-400;
+          }
+      }
+    }
+  }
+
+  #deleteBtn {
+    @apply bg-red-500 p-2 text-white font-bold my-2;
+  }
+}

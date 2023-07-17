@@ -1,0 +1,17 @@
+legend {
+    @apply gridCenter text-center
+        w-full text-4xl md:text-5xl my-4 font-extrabold;
+}
+
+form {
+    @apply gridStart bg-white w-80 md:w-96 p-4 shadow-xl;
+    label {
+        @apply block mb-2 font-bold;
+    }
+    input {
+        @apply bg-slate-100 w-full py-2 mb-2 indent-4;
+    }
+    #button {
+        @apply bg-black text-white font-bold p-2 mt-2 w-32;
+    }
+}
